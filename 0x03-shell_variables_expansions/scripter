@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod u+x * | du --exclude= '.md'
+chmod u+x * | du --exclude='.md'
 git add .
 git commit -m "good script automated done by my script xD"
 git push 
