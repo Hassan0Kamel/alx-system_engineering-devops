@@ -1,0 +1,5 @@
+#!/bin/bash
+chmod u+x .
+git add .
+git commit -m "good script automated done by my script xD"
+git push 
