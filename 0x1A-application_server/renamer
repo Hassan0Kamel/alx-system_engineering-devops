@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Specify the directory where you want to rename files
+target_directory="/alx-system_engineering-devops/0x1A-application_server"
+
+# Ensure the target directory exists
+if [ -d "$target_directory" ]; then
+  # Use a for loop to iterate over all files in the target directory and its subdirectories
+  shopt -s globstar  # Enable recursive globbing
+  for file in "$target_directory"/**/*; do
+    if [ -f "$file" ]; then  # Check if it's a regular file
+      # Get the file's base name
+      filename=$(basename "$file")
+      
+      # Add 'x' to the beginning of the filename
+      new_filename="x$filename"
+      
+      # Rename the file
+      mv "$file" "${file%/*}/$new_filename"
+      
+      echo "Renamed: $filename -> $new_filename"
+    fi
+  done
+else
+  echo "Error: Target directory not found."
+  exit 1
+fi
